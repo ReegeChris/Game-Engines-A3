@@ -29,6 +29,15 @@ public class EnemySpawner : MonoBehaviour
 	[DllImport("A2Plugin")]
 	private static extern int randomScale(float i1, float i2);
 
+	//Create a variable to store audio clip
+	private AudioSource _BGAudioSource;
+
+	private void Awake()
+    {
+		//_audioSource gets the 'AudioSource'  component attached to the 'Music' gameobject.
+		_BGAudioSource = GetComponent<AudioSource>();
+	}
+
 	// Start is called before the first frame update
 	void Start()		{
 		menu.enabled = true;
@@ -56,6 +65,9 @@ public class EnemySpawner : MonoBehaviour
 		//Invoke("SpawnEnemies", spawnTimer);
 		Invoke("SpawnEnemiesFromPool", spawnTimer);
 		Invoke("nextWave", waveTimer);
+
+		//Play background music when the start game button is pressed
+		//_BGAudioSource.Play();
 
 	}
 
@@ -136,7 +148,10 @@ public class EnemySpawner : MonoBehaviour
 		{
 			if (Random.Range(0, 2) > 0)
 			{
-				Projectile asteroid = Instantiate(asteroidPrefab, spawnLocation, Quaternion.identity);
+				Projectile asteroid = AsteroidObjectPool.Instance.GetFromPool();
+
+				asteroid.transform.position = spawnLocation;
+				
 				int rand = randomScale(min_Size, max_Size); // Random.Range(min_Size, max_Size);
 				asteroid.transform.localScale = new Vector3(rand, rand, rand);
 				Invoke("SpawnEnemiesFromPool", spawnTimer);

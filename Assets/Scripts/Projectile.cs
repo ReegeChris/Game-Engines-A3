@@ -39,9 +39,12 @@ public class Projectile : MonoBehaviour
 		if (this.gameObject.CompareTag("Asteroid") && other.gameObject.CompareTag("Asteroid")|| other.gameObject.CompareTag("TopBoundary") && this.gameObject.CompareTag("Asteroid")|| other.gameObject.CompareTag("TopBoundary") && this.gameObject.CompareTag("Enemy")) { return; }
 		if (this.gameObject.CompareTag("PlayerBullet"))
 			{
-			this.destroyed.Invoke();
+			//this.destroyed.Invoke();
+			//Asteroid added to object pool after colliding with player and objects in scene
+			AsteroidObjectPool.Instance.AddToPool(this);
 			}
-		Destroy(this.gameObject);
+			//Projectile(bullet) added to object pool after colliding with enemies and asteroids
+			ProjectileObjectPool.Instance.AddToPool(this);
 		}
 	}
 

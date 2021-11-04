@@ -28,8 +28,16 @@ public class Spaceship : MonoBehaviour
             return;
             }
         Quaternion quat = Quaternion.Euler(0, 90, 90);
-        Projectile projectile = Instantiate(this.bulletPrefab, bulletLocation.transform.position, quat);
-        projectile.destroyed += LaserDestroyed;
+      //  Projectile projectile = Instantiate(this.bulletPrefab, bulletLocation.transform.position, quat);
+        
+        //Bullet projectile is acquired from the pool 
+        Projectile projectile = ProjectileObjectPool.Instance.GetFromPool();
+
+        //Set bullet object from pool to the bulletLocation variable
+        projectile.transform.position = bulletLocation.position;
+
+        //projectile.destroyed += LaserDestroyed;
+        
         canShoot = false;
         }
 
