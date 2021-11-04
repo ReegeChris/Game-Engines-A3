@@ -96,6 +96,7 @@ public class Asteroid : MonoBehaviour, Object
 		if (other.gameObject.CompareTag("Asteroid") || other.gameObject.CompareTag("TopBoundary")) { return; }
 		if (_Lives == 0)
 			{
+			Debug.Log("Asteroid Destroyed");
 			Destroy(this.gameObject);
 			}
 		}

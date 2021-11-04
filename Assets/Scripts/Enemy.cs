@@ -19,8 +19,16 @@ public class Enemy : Spaceship
 		{
 		if (other.gameObject.CompareTag("TopBoundary"))
 			{ return; }
+	
 		if (other.gameObject.CompareTag("Boundary") || (other.gameObject.CompareTag("Player")))
-			{Destroy(this.gameObject);}
+			{
+
+			//Call the object pool class and create an instance of the enemy object after colliding with the player.
+			//Once the instance is created, the AddToPool function is called, adding the object to the queue
+			ObjectPool.Instance.AddToPool(gameObject);
+		
+			}
+	
 		if (other.gameObject.CompareTag("PlayerBullet"))
 			{
 			if (lives == 0) 

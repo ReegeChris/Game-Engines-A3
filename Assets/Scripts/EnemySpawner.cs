@@ -53,7 +53,8 @@ public class EnemySpawner : MonoBehaviour
     public void StartGame()
     {
 		menu.enabled = false;
-		Invoke("SpawnEnemies", spawnTimer);
+		//Invoke("SpawnEnemies", spawnTimer);
+		Invoke("SpawnEnemiesFromPool", spawnTimer);
 		Invoke("nextWave", waveTimer);
 
 	}
@@ -67,7 +68,8 @@ public class EnemySpawner : MonoBehaviour
 			WaveText.text = "Wave " + wave;
 			enemyCount = 0;
 			enemyLimit++;
-			Invoke("SpawnEnemies", spawnTimer);
+			//Invoke("SpawnEnemies", spawnTimer);
+			Invoke("SpawnEnemiesFromPool", spawnTimer);
 			Invoke("nextWave", waveTimer);
 			}
 		else
@@ -97,7 +99,33 @@ public class EnemySpawner : MonoBehaviour
 		CommandInvoker.UndoCommand();
 
 	}
-	void SpawnEnemies()
+	//void SpawnEnemies()
+	//{
+
+	//	float pos__X = Random.Range(min__X, max__X);
+	//	Vector3 spawnLocation = transform.position;
+
+	//	spawnLocation.x = pos__X;
+	//	if (enemyCount < enemyLimit)
+	//	{
+	//		if (Random.Range(0, 2) > 0)
+	//		{
+	//			Projectile asteroid = Instantiate(asteroidPrefab, spawnLocation, Quaternion.identity);
+	//			int rand = randomScale(min_Size, max_Size); // Random.Range(min_Size, max_Size);
+	//			asteroid.transform.localScale = new Vector3(rand, rand, rand);
+	//			Invoke("SpawnEnemies", spawnTimer);
+	//		}
+	//		else
+	//		{
+	//			Instantiate(enemyPrefab, spawnLocation, Quaternion.Euler(0f, -90f, 90f));
+	//			Invoke("SpawnEnemies", spawnTimer);
+	//		}
+	//		enemyCount++;
+	//	}
+	//}
+
+	//Function Similar to spawn enemies, gets objects from the queue in the ObjectPool class
+	void SpawnEnemiesFromPool()
 	{
 
 		float pos__X = Random.Range(min__X, max__X);
@@ -111,12 +139,16 @@ public class EnemySpawner : MonoBehaviour
 				Projectile asteroid = Instantiate(asteroidPrefab, spawnLocation, Quaternion.identity);
 				int rand = randomScale(min_Size, max_Size); // Random.Range(min_Size, max_Size);
 				asteroid.transform.localScale = new Vector3(rand, rand, rand);
-				Invoke("SpawnEnemies", spawnTimer);
+				Invoke("SpawnEnemiesFromPool", spawnTimer);
 			}
 			else
 			{
-				Instantiate(enemyPrefab, spawnLocation, Quaternion.Euler(0f, -90f, 90f));
-				Invoke("SpawnEnemies", spawnTimer);
+				//Enemey variable gets instance of the enemy object from the object pool
+				var enemy = ObjectPool.Instance.GetFromPool();
+
+				//Enemy variable has it's position = to the spawn Location position. This also randomly spawns in each enemy
+				enemy.transform.position = spawnLocation;
+				Invoke("SpawnEnemiesFromPool", spawnTimer);
 			}
 			enemyCount++;
 		}
