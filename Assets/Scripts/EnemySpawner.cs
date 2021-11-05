@@ -66,9 +66,6 @@ public class EnemySpawner : MonoBehaviour
 		Invoke("SpawnEnemiesFromPool", spawnTimer);
 		Invoke("nextWave", waveTimer);
 
-		//Play background music when the start game button is pressed
-		//_BGAudioSource.Play();
-
 	}
 
 	void nextWave()

@@ -36,11 +36,7 @@ public class Spaceship : MonoBehaviour
         
         canShoot = false;
 
-        //Bullet projectile is acquired from the pool 
-      // Projectile projectile = ProjectileObjectPool.Instance.GetFromPool();
 
-        //Set bullet object from pool to the bulletLocation variable
-     //  projectile.transform.position = bulletLocation.position;
 
         }
 

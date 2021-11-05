@@ -10,10 +10,6 @@ public class Projectile : MonoBehaviour
 	public float speed_min, speed_max;
 	public float rotation_min, rotation_max;
 
-
-	[SerializeField]
-	Spaceship ship;
-
 	public System.Action destroyed;
 
 	private float speed, rotation;
