@@ -23,6 +23,8 @@ public class Player : Spaceship
         if (Input.GetKeyDown(KeyCode.Space) && canShoot)
 			{
 			
+			Debug.Log("Space was pressed");
+
 			Shoot();
 
 			//Invoking the Observer pattern
@@ -74,6 +76,13 @@ public class Player : Spaceship
 			{
 			rb.AddForce(rb.velocity * -1 * bounce, ForceMode.Impulse);
 			}
+		
+		//Bounce physics added to top boundary
+		if (other.gameObject.tag == "TopBoundary")
+			 {
+			rb.AddForce(rb.velocity * -1 * bounce, ForceMode.Impulse);
+			}
+		
 		}
 
 

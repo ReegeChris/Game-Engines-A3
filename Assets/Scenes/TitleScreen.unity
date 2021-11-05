@@ -274,7 +274,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 654931869}
-        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
         m_MethodName: changeScene
         m_Mode: 1
         m_Arguments:
@@ -335,7 +335,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a3518b640030a42961de4f28f1dabd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yourButton: {fileID: 0}
 --- !u!1 &608069142
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,10 +454,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 654931868}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65a3518b640030a42961de4f28f1dabd, type: 3}
+  m_Script: {fileID: 11500000, guid: b162eec573892314aa22ee3ec186f855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yourButton: {fileID: 0}
 --- !u!4 &654931870
 Transform:
   m_ObjectHideFlags: 0

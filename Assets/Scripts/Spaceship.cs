@@ -12,7 +12,7 @@ public class Spaceship : MonoBehaviour
     public int lives; 
 
     protected float sqrMaxVelocity;
-    protected bool canShoot = true;
+    public bool canShoot = true;
 
     // Start is called before the first frame update
     protected void Start()
@@ -27,21 +27,25 @@ public class Spaceship : MonoBehaviour
             {
             return;
             }
+      
         Quaternion quat = Quaternion.Euler(0, 90, 90);
-      //  Projectile projectile = Instantiate(this.bulletPrefab, bulletLocation.transform.position, quat);
+      
+        // Projectile projectile = Instantiate(this.bulletPrefab, bulletLocation.transform.position, quat);
         
         //Bullet projectile is acquired from the pool 
-        Projectile projectile = ProjectileObjectPool.Instance.GetFromPool();
+       Projectile projectile = ProjectileObjectPool.Instance.GetFromPool();
 
         //Set bullet object from pool to the bulletLocation variable
-        projectile.transform.position = bulletLocation.position;
+       projectile.transform.position = bulletLocation.position;
 
-        //projectile.destroyed += LaserDestroyed;
+        projectile.destroyed += LaserDestroyed;
         
         canShoot = false;
+
+        Debug.Log("Shoot");
         }
 
-    protected void LaserDestroyed()
+    public void LaserDestroyed()
         {
         canShoot = true;
         }

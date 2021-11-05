@@ -148,6 +148,7 @@ public class EnemySpawner : MonoBehaviour
 		{
 			if (Random.Range(0, 2) > 0)
 			{
+				//Asteroid variable gets instance of the asteroid prefab from the asteroid object pool
 				Projectile asteroid = AsteroidObjectPool.Instance.GetFromPool();
 
 				asteroid.transform.position = spawnLocation;

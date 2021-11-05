@@ -10,6 +10,10 @@ public class Projectile : MonoBehaviour
 	public float speed_min, speed_max;
 	public float rotation_min, rotation_max;
 
+
+	[SerializeField]
+	Spaceship ship;
+
 	public System.Action destroyed;
 
 	private float speed, rotation;
@@ -40,11 +44,19 @@ public class Projectile : MonoBehaviour
 		if (this.gameObject.CompareTag("PlayerBullet"))
 			{
 			//this.destroyed.Invoke();
-			//Asteroid added to object pool after colliding with player and objects in scene
-			AsteroidObjectPool.Instance.AddToPool(this);
-			}
+
+			Debug.Log("can shoot was set to true");
+
+		//	ship.canShoot = true;
+
 			//Projectile(bullet) added to object pool after colliding with enemies and asteroids
 			ProjectileObjectPool.Instance.AddToPool(this);
+			}
+		
+			//Asteroid added to object pool after colliding with player and objects in scene
+			AsteroidObjectPool.Instance.AddToPool(this);
+		
+		//Destroy(this.gameObject);
 		}
 	}
 

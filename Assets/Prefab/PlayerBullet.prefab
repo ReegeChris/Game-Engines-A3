@@ -53,6 +53,7 @@ MonoBehaviour:
   speed_max: 13
   rotation_min: 0
   rotation_max: 0
+  ship: {fileID: 7799700505256712780, guid: b8d0013e5bfd202488b488d4d5f4377a, type: 3}
 --- !u!54 &3015269081236946038
 Rigidbody:
   m_ObjectHideFlags: 0
