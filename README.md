@@ -4,6 +4,8 @@
 
 Christian Riggi: 100752293
 
+## NOTE: BUILD FOLDER CAN BE FOUND IN A3 Exe.zip
+
 ### Game Description:
 
 ### Screenshots:
