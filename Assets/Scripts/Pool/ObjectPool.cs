@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//This code for the object pool design pattern was referenced from Parisa's Lecture 6 video: https://drive.google.com/file/d/1INnjZ2ANi6TWEA-OkGgZZFC-tb6XpDCu/view
+//This code for the object pool design pattern was referenced from Parisa's Lab 6 video: https://drive.google.com/file/d/1INnjZ2ANi6TWEA-OkGgZZFC-tb6XpDCu/view
 
 public class ObjectPool : MonoBehaviour
 {
@@ -24,7 +24,7 @@ public class ObjectPool : MonoBehaviour
 
     }
 
-    //If there
+    //If there are no objects in the pool, it gets added to the queue
     public GameObject GetFromPool()
     {
         if(deactivatedObjects.Count == 0)
