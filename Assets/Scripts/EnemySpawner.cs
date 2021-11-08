@@ -19,6 +19,9 @@ public class EnemySpawner : MonoBehaviour
 	public float waveTimer;
 	public int wave = 1;
 
+	//Enemy counter used with queue and decoupling action
+	public static int enemyDestroyedCount = 0;
+
 	public static int enemyLimit=1, waveTotal=1;
 	private int enemyCount;
 

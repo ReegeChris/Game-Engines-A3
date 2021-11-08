@@ -7,7 +7,10 @@ public class Enemy : Spaceship
 
 	public float minVelocity;
 
+	//Action to track the total number of enemies destroyed
+	public static event System.Action<string> enemiesDestroyed;
 
+	
 	void Awake()
 	{
 		float temp = Random.Range(minVelocity, maxVelocity);
@@ -27,14 +30,29 @@ public class Enemy : Spaceship
 			//Once the instance is created, the AddToPool function is called, adding the object to the queue
 			ObjectPool.Instance.AddToPool(gameObject);
 		
+			
+		
 			}
 	
 		if (other.gameObject.CompareTag("PlayerBullet"))
 			{
+			
 			if (lives == 0) 
+			
 			{
+				//Counter is incremented each time an enemy ship is destroyed
+				EnemySpawner.enemyDestroyedCount++;
+
+				//Enemiesdestroyed action is invoked each time the enmey ship is destroyed
+				enemiesDestroyed?.Invoke("Total Enemies destroyed:" + EnemySpawner.enemyDestroyedCount);
+
+
 				Destroy(this.gameObject);
-			} else {
+
+			}
+			
+			else {
+				
 				lives -= 1;
 			}
 		}
