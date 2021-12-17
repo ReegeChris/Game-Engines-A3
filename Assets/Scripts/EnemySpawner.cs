@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour
 
 	public Projectile asteroidPrefab;
 	public GameObject enemyPrefab;
+	public GameObject enemyVariantPrefab;
 	public string sceneName;
 
 	public TextMeshProUGUI WaveText;
@@ -165,6 +166,9 @@ public class EnemySpawner : MonoBehaviour
 				//Enemy variable has it's position = to the spawn Location position. This also randomly spawns in each enemy
 				enemy.transform.position = spawnLocation;
 				Invoke("SpawnEnemiesFromPool", spawnTimer);
+
+				Instantiate(enemyVariantPrefab, spawnLocation, Quaternion.Euler(0f, -90f, 90f));
+				Invoke("SpawnEnemies", spawnTimer);
 			}
 			enemyCount++;
 		}

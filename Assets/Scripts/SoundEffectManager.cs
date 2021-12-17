@@ -49,6 +49,10 @@ public class SoundEffectManager : MonoBehaviour
           //  Debug.Log("kerplam");
 
         }
+
+
+        //deathSoundEffect Action is invoked each time a ship is destroyed
+        Enemy.deathSoundEffect += PlayAudio;
     }
 
 

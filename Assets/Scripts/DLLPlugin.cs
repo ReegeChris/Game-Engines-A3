@@ -49,10 +49,7 @@ public class DLLPlugin : MonoBehaviour
     void Update()
     {
 
-        if (EnemySpawner.enemyDestroyedCount == 5 && Input.GetKey(KeyCode.Q))
-        {
-            RandColor();
-        }
+ 
     }
 
     //Function to set the color of a material to be random
