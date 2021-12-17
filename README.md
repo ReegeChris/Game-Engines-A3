@@ -27,6 +27,7 @@ The game that we have created is called Space Shooter. This game is a 2D-Fixed s
 ### UML Diagram: 
 
 UML Diagram displaying the Object pool pattern in my game
+#### NOTE: This UML only has slight modifications as I felt that the object pool being used from before was appropriate. I just made minor modificcations
 
 ![Final Exam UML](https://user-images.githubusercontent.com/56273491/146615064-8ac07059-25a6-4ea5-8daa-75fe3c625900.png)
 
