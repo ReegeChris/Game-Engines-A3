@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3884124331625043700}
   - component: {fileID: 8935555558707979181}
   - component: {fileID: 6330877437442286186}
+  - component: {fileID: 1077754763916487231}
   m_Layer: 8
   m_Name: PlayerBullet
   m_TagString: PlayerBullet
@@ -53,7 +54,6 @@ MonoBehaviour:
   speed_max: 13
   rotation_min: 0
   rotation_max: 0
-  ship: {fileID: 7799700505256712780, guid: b8d0013e5bfd202488b488d4d5f4377a, type: 3}
 --- !u!54 &3015269081236946038
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -134,3 +134,15 @@ CapsuleCollider:
   m_Height: 0.4
   m_Direction: 0
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1077754763916487231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8136288629163394505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc023ef4ab594fc4988b0d03933d66b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
